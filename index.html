@@ -3,177 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/something/something/something">
-    <title>Ted_Brown</title>
+    <link rel="icon" type="image/x-icon" href="/something/something/something/and_nothing_yet">
+    <title>Ted Brown | Home</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Share+Tech+Mono&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+
+<!--   ██████╗  ██████╗ ████████╗ ██████╗           -->
+<!--   ██╔════╝ ██╔══██╗╚══██╔══╝ ██╔══██╗          -->
+<!--   ██║      ██████╔╝   ██║    ██████╔╝          -->
+<!--   ██║      ██╔═══╝    ██║    ██╔══██╗          -->
+<!--   ╚██████╗ ██║        ██║    ██████╔╝          -->
+<!--    ╚═════╝ ╚═╝        ╚═╝    ╚═════╝    .london-->
+
     <style>
+
+        :root {
+            --primary: #00aaff;
+            --primary-dark: #0088cc;
+            --secondary: #ff6b6b;
+            --dark: #1a1a1a;
+            --darker: #121212;
+            --light: #f0f0f0;
+            --gray: #565656;
+            --dark-gray: #333;
+        }
+        
         body {
             font-family: 'Abel', sans-serif;
-            margin: 50px;
-            background-color: #252525;
-            color: white;
+            margin: 0;
+            padding: 0;
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
         }
 
         nav {
-            background-color: #333;
-            padding: 10px 20px;
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 15px 20px;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 999;
             text-align: center;
-            border-bottom: 2px solid #565353;
+            border-bottom: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         nav a {
-            color: #00aaff;
+            color: var(--primary);
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background-color: rgba(0, 170, 255, 0.1);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         header {
-            border: 2px solid grey;
-            background-color: #565353;
-            padding: 20px;
-            font-size: 36px;
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            padding: 120px 20px 60px;
             text-align: center;
-            box-sizing: border-box;
-            margin-top: 60px; 
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--primary), var(--light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+            letter-spacing: 2px;
+        }
+
+        header h2 {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 10px;
+            letter-spacing: 1px;
         }
 
         .section {
-            border: 2px solid #565656;
-            padding: 20px;
-            background-color: #2f2f2f;
+            background-color: var(--dark);
+            border-radius: 8px;
+            padding: 30px;
             margin: 30px 0;
-            box-sizing: border-box;
-            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        h2, h3 {
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        h3 {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--light);
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+        }
+
+        .highlight {
+            display: inline-block;
+            padding: 15px;
+            background-color: rgba(0, 170, 255, 0.1);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 4px 4px 0;
             margin: 10px 0;
-        }
-
-        span.highlight {
-            text-decoration: underline;
-            text-decoration-color: blue;
-            text-decoration-thickness: 2px;
-            color: white;
+            line-height: 1.7;
         }
 
         .links a {
-            color: #00aaff;
-            text-decoration: underline;
-            display: block;
-            margin-top: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 15px 10px 0;
+            padding: 8px 15px;
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .links a:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 170, 255, 0.3);
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            border-top: 1px solid gray;
+            margin-top: 80px;
+            padding: 30px;
+            background-color: var(--dark);
+            border-top: 1px solid var(--gray);
             color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background-color: var(--dark);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-top: 3px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 170, 255, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(0, 170, 255, 0.2);
+            color: var(--primary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header h2 {
+                font-size: 1.2rem;
+            }
+            
+            nav a {
+                margin: 0 10px;
+                font-size: 16px;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(0, 170, 255, 0.8), 0 0 20px rgba(0, 170, 255, 0.4);
+            }
         }
     </style>
 </head>
 
-<!--   ██████╗  ██████╗ ████████╗ ██████╗    -->
-<!--   ██╔════╝ ██╔══██╗╚══██╔══╝ ██╔══██╗   -->
-<!--   ██║      ██████╔╝   ██║    ██████╔╝   -->
-<!--   ██║      ██╔═══╝    ██║    ██╔══██╗   -->
-<!--   ╚██████╗ ██║        ██║    ██████╔╝   -->
-<!--    ╚═════╝ ╚═╝        ╚═╝    ╚═════╝    -->
-
 <body>
     
 <nav>
+    <a href="#top">Home</a>
+    <a href="https://projects.cptb.london/">Projects</a>
     <a href="#top">Top</a>
-    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#hobbies">Hobbies</a>
     <a href="#links">Links</a>
-    <a href="https://projects.cptb.london/">prjects-page-coming-soon</a>
 </nav>
 
 <div id="top"></div>
 
-<header>Ted Brown</header>
-<h2><center>CodePortTB</center></h2>
-
-<section class="section">
-    <h3>This is my website -- Made By Ted Brown<br>I am not a radio pirate ;)<br>
-        I'll let you know when I've completed any of these projects and update the site when I can.</h3>
-</section>
-
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="section">
-        <span class="highlight">
-            Studying for an Amateur Radio licence, hopefully I'll have one by the end of February or March.<br>
-            The Amateur Radio Foundation Licence allows operation of up to 25W radios on UHF, VHF, and HF bands.
-            To get it, you need to pass a 26-question multiple-choice paper with over 70%.<br>
-            If you want to get in to Ameture radio i would suggest getting an sdr or a lora mesh node.<br>
-            There are 3 levels of Amateur Radio Licences:
-            <br>1) Foundation
-            <br>2) Intermediate
-            <br>3) Full
-        </span>
+<header>
+    <div class="container">
+        <h1>Ted Brown</h1>
+        <h2>CodePortTB</h2>
     </div>
-</section>
+</header>
 
-<section>
-    <h2>linux web server</h2>
-    <div class="section">
-        <span class="highlight">Dell optiplex debian apache web server -- that will also be hosting this website soon</span>
-    </div>
-</section>
+<div class="container">
+    <section class="section">
+        <h3>Welcome to my website<br>I am not a radio pirate ;)</h3>
+            <div class="highlight">
+            I'll update this site and my projects page when I complete projects or start any new ones.
+        </div>
+    </section>
+   
+<section id="hobbies">
+        <h2>Hobbies & Skills</h2>
+        <div class="section">
+            <div class="highlight">
+                <h3>Outdoor</h3>
+                <ul>
+                    <li><strong>Fishing:</strong> Catching massive fish</li>
+                    <li><strong>Shooting:</strong> Precision sports and marksmanship</li>
+                    <li><strong>Football:</strong> Both watching and playing</li>
+                </ul>
+                
+                <h3>Tech</h3>
+                <ul>
+                    <li><strong>Web Development:</strong> Building and experimenting with html and css</li>
+                    <li><strong>Radio Stuff:</strong> Exploring and building radio equipment</li>
+                </ul>
+            </div>
+    </section>
 
-    <section>
-    <h2>Raspberry pi </h2>
-    <div class="section">
-        <span class="highlight">Raspberry pi (NAS) running openmediavault and with some external hard drives.<br>
-        Which will give me some extra online storage</span>
-    </div>
-</section>
+    <selection id="contact">
+        <h2>Contact Me</h2>
+        <div class="section">
+            <h3>
+                codeporttb@gmail.com<br>
+                teddbrown@outlook.com<br>
+                GitHub: codeporttb<br>
+                My snap: tedb2267
+            </h3>
+        </div>
+    </selection>
 
-<section>
-    <h2>Coding</h2>
-    <div class="section">
-        <span class="highlight">Learning python</span>
-    </div>
-</section>
-
-<section>
-    <h2>Hobbies</h2>
-    <div class="section">
-        <span class="highlight">
-            - Fishing<br>
-            - Shooting<br>
-            - Web development<br>
-            - Radio stuff<br>
-            - Football
-        </span>
-    </div>
-</section>
-
-<section id="links">
-    <h2>Very very good websites to check out</h2>
-    <div class="links">
-        <a href="https://github.com/codeporttb">My github</a>
-        <a href="https://projects.cptb.london/">projects page -- probably not finished yet</a>
-        <a href="https://ugl.cptb.london/">website i made when is was board</a>
-        <a href="https://driverjack.co.uk/">DriverJack-Jackbrown</a>
-        <a href="https://www.essexham.co.uk/">Essex Ham Main Website</a>
-    </div>
-</section>
+    <section id="links">
+        <h2>Links</h2>
+        <div class="links">
+            <a href="https://github.com/codeporttb" target="_blank">GitHub Profile</a>
+            <a href="https://projects.cptb.london/" target="_blank">Projects Page</a>
+            <a href="https://old.cptb.london" target="_blank">V1 website</a>
+            <a href="https://driverjack.co.uk/" target="_blank">DriverJack (Jack Brown)</a>
+            <a href="https://www.essexham.co.uk/" target="_blank">Essex Ham Radio</a>
+        </div>
+    </section>
+</div>
 
 <footer>
-    © 2025 Ted Brown (CodePortTB.london). All rights reserved.<br>
+    © 2025 Ted Brown (CodePortTB). All rights reserved.
 </footer>
 </body>
 </html>
-
