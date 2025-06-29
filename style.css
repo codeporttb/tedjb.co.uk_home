@@ -245,7 +245,10 @@
         }
         
           /*-- Glow-Effect --*/
-        
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+
         @keyframes glow {
             from {
                 text-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
