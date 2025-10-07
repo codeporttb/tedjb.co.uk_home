@@ -63,7 +63,7 @@
             background: linear-gradient(135deg, var(--dark), var(--darker));
             padding: 100px 50px 50px;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 3px;
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid var(--primary);
@@ -86,7 +86,7 @@
             background: linear-gradient(90deg, var(--primary), var(--light));
             -webkit-background-clip: text;
             background-clip: text;
-            border-left: 4px solid var(--primary);
+             color: var(--primary);
             text-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
             letter-spacing: 2px;
         }
@@ -182,7 +182,7 @@
             background-color: 1xp var(--dark);
             border-top: 1px solid var(--gray);
             color: #aaa;
-            font-size: 0.5cm;
+            font-size: 2cqmin;
         }
 
         /*-- Projects-css --*/
