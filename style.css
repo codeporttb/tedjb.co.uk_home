@@ -61,7 +61,7 @@
 
         header {
             background: linear-gradient(135deg, var(--dark), var(--darker));
-            padding: 120px 20px 60px;
+            padding: 100px 50px 50px;
             text-align: center;
             margin-top: 60px;
             position: relative;
@@ -86,7 +86,7 @@
             background: linear-gradient(90deg, var(--primary), var(--light));
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            border-left: 4px solid var(--primary);
             text-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
             letter-spacing: 2px;
         }
