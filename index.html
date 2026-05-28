@@ -1,132 +1,131 @@
-<!DOCTYPE html><html lang="en">
-    <head>    
-        <meta charset="UTF-8">    
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-        <link rel="icon" type="image/x-icon" href="/something/something/something/and_nothing_yet">    
-        <title>M7TJV</title>     
-        <link rel="stylesheet" href="style.css"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/something/something/something/and_nothing_yet">
+    <title>M7TJV - Ted Brown</title>
+    <link rel="stylesheet" href="style.css">
     <script>
-
-const launchDate = new Date(2026, 0, 15, 22, 6, 0); 
-function updateTimer() {
-const now = new Date();
-const diff = now - launchDate;
-const msPerDay = 1000 * 60 * 60 * 24;
-const msPerYear = msPerDay * 365.25;
-
-document.getElementById('years').innerText = Math.floor(diff / msPerYear);
-document.getElementById('days').innerText = Math.floor((diff % msPerYear) / msPerDay);
-document.getElementById('hours').innerText = Math.floor((diff % msPerDay) / (1000 * 60 * 60));
-document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
-}
-setInterval(updateTimer, 1000);
-
-document.addEventListener("DOMContentLoaded", () => {
-const body = document.querySelector('body');
-const textNodes = [];
-const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, null, false);
-let node;
-
-while (node = walker.nextNode()) {
-    const parent = node.parentElement;
-    if (parent.tagName !== 'SCRIPT' && parent.tagName !== 'STYLE' && node.nodeValue.trim() !== '') {
-        textNodes.push({
-            node: node,
-            text: node.nodeValue,
-            container: parent.closest('.section') || parent.closest('header') || parent.closest('footer') || parent.closest('.links')
-        });
-        node.nodeValue = ''; 
-    }
-}
-
-let i = 0;
-function type() {
-    if (i < textNodes.length) {
-        let item = textNodes[i];
+        const launchDate = new Date(2026, 0, 15, 22, 6, 0); 
         
-        if (item.container) {
-            item.container.style.opacity = "1";
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - launchDate;
+            const msPerDay = 1000 * 60 * 60 * 24;
+            const msPerYear = msPerDay * 365.25;
+            document.getElementById('years').innerText = Math.floor(diff / msPerYear);
+            document.getElementById('days').innerText = Math.floor((diff % msPerYear) / msPerDay);
+            document.getElementById('hours').innerText = Math.floor((diff % msPerDay) / (1000 * 60 * 60));
+            document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
         }
-
-        let charIndex = 0;
-        const chunkSize = 3;// <--chunksize
-
-        function typeChunk() {
-            if (charIndex < item.text.length) {
-                item.node.nodeValue += item.text.substring(charIndex, charIndex + chunkSize);
-                charIndex += chunkSize;
-                setTimeout(typeChunk, 1); 
-            } else {
-                i++;
-                type(); 
+        setInterval(updateTimer, 1000);
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const body = document.querySelector('body');
+            const textNodes = [];
+            const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, null, false);
+            let node;
+            
+            while (node = walker.nextNode()) {
+                const parent = node.parentElement;
+                if (parent.tagName !== 'SCRIPT' && parent.tagName !== 'STYLE' && node.nodeValue.trim() !== '') {
+                    textNodes.push({
+                        node: node,
+                        text: node.nodeValue,
+                        container: parent.closest('.section') || parent.closest('header') || parent.closest('footer') || parent.closest('.links')
+                    });
+                    node.nodeValue = '';
+                }
             }
-        }
-        typeChunk();
-    }
-}
-type();
-});
-</script>
-
+            
+            let i = 0;
+            function type() {
+                if (i < textNodes.length) {
+                    let item = textNodes[i];
+                    if (item.container) {
+                        item.container.style.opacity = "1";
+                    }
+                    let charIndex = 0;
+                    const chunkSize = 3; // <--chunksize
+                    function typeChunk() {
+                        if (charIndex < item.text.length) {
+                            item.node.nodeValue += item.text.substring(charIndex, charIndex + chunkSize);
+                            charIndex += chunkSize;
+                            setTimeout(typeChunk, 1);
+                        } else {
+                            i++;
+                            type();
+                        }
+                    }
+                    typeChunk();
+                }
+            }
+            type();
+        });
+    </script>
+</head>
 <body>
-<b>
-<header>
-<div class="container">
-<i>
-<h1>Ted Brown ~ M7TJV</h1>
-last updated time: 22:06 UTC<br>
-last updated date: Thursday 15th January 2026<br>
-location: Aylesbury, Buckinghamshire, England<br>
-This website was last updated:
-<span id="years">0</span> years, <span id="days">0</span> days, <span id="hours">0</span> hours, <span id="minutes">0</span> minutes, <span id="seconds">0</span> seconds ago
-This website is not recommended for mobile
-</i>
-</div>
-</header>
+    <b>
+        <header>
+            <div class="container">
+                <i>
+                    <h1>Ted Brown ~ M7TJV</h1>
+                    last updated time: 22:06 UTC<br>
+                    last updated date: Thursday 15th January 2026<br>
+                    location: Aylesbury, Buckinghamshire, England<br>
+                    This website was last updated:<span id="years">0</span> years, <span id="days">0</span> days, <span id="hours">0</span> hours, <span id="minutes">0</span> minutes, <span id="seconds">0</span> seconds ago<br>
+                    This website is now mobile-friendly!
+                </i>
+            </div>
+        </header>
 
-<section class="section">
-<i><h2>Welcome to my website ;) - looking for work experience</h2></i><br>
-Hi i'm Ted Brown (M7TJV) - I have my Amateur Radio licence and have an intrest in technology, i enjoy sport shooting, web development, amateur radio, fishing, and i play for my local football club. My amateur radio callsign is M7TJV.
-</section>
+        <section class="section">
+            <i><h2>Welcome to my website ;) - looking for work experience</h2></i><br>
+            Hi i'm Ted Brown (M7TJV) - I have my Amateur Radio licence and have an intrest in technology, i enjoy sport shooting, web development, amateur radio, fishing, and i play for my local football club. My amateur radio callsign is M7TJV.
+        </section>
 
-<div class="section">
-<i><h2>My TOR website</h2></i><br>
-This website has not been updated for a long time but will be updated by the 1st of Feb<br>
-My tor ( The Onion Router ) website is<br>
-<i>pxjtgk2bmv2jxtfn5dgtkgixipypharmfcwg2y2q562<br>tyupkfyiwc3yd.onion</i><br>
-Download tor at <a href="https://www.torproject.org/download/">torproject.org/download</a>
-</div>
+        <div class="section">
+            <i><h2>My TOR website</h2></i><br>
+            This website has not been updated for a long time but will be updated by the 1st of Feb<br>
+            My tor ( The Onion Router ) website is<br>
+            <i>pxjtgk2bmv2jxtfn5dgtkgixipypharmfcwg2y2q562<br>tyupkfyiwc3yd.onion</i><br>
+            Download tor at <a href="https://www.torproject.org/download/">torproject.org/download</a>
+        </div>
 
-<div class="section">
-<i><h2>Projects</h2></i><br>
-when i start any new projects this is where they will be.
-<a href="https://calculator.tedjb.co.uk">calculator</a>
-<a href="https://timezone.tedjb.co.uk">timezone map</a>
-</div>
+        <div class="section">
+            <i><h2>Projects</h2></i><br>
+            when i start any new projects this is where they will be.
+            <div class="links">
+                <a href="https://calculator.tedjb.co.uk">calculator</a>
+                <a href="https://timezone.tedjb.co.uk">timezone map</a>
+            </div>
+        </div>
 
+        <div class="section">
+            <div class="links">
+                <i><h2>links</h2></i><br>
+                <a href="https://github.com/codeporttb">GitHub Profile</a>
+                <a href="https://github.com/codeporttb/tedjb.co.uk">WebCode on Github</a>
+                <a href="https://rsgb.org/">Radio Society GB</a>
+                <a href="https://cptb.london/">my old domain (cptb.london)</a>
+                <a href="https://old.cptb.london">V1 website</a>
+                <a href="https://www.torproject.org/download/">torproject/download</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="links">
+                <i><h2>Contact me at</h2></i><br>
+                GitHub: <a href="https://github.com/codeporttb">github/codeporttb</a><br>
+                Email: <a href="mailto:contact@tedjb.co.uk">contact@tedjb.co.uk - sorry i havent paid my email service this month</a>
+            </div>
+        </div>
 
-
-
-<div class="links">
-<i><h2>links</h2></i><br>
-<a href="https://github.com/codeporttb">GitHub Profile</a>
-<a href="https://github.com/codeporttb/tedjb.co.uk">WebCode on Github</a>
-<a href="https://rsgb.org/">Radio Society GB</a>
-<a href="https://cptb.london/">my old domain (cptb.london)</a>
-<a href="https://old.cptb.london">V1 website</a>
-<a href="https://www.torproject.org/download/">torproject/download</a>
-</div>
-</div>
-
-<div class="links">
-<i><h2>Contact me at</h2></i><br>
-GitHub: <a href="https://github.com/codeporttb">github/codeporttb</a><br>
-Email: <a href="mailto:contact@tedjb.co.uk">contact@tedjb.co.uk - sorry i havent paid my email service this month</a>
-</div>
-</div>
-
-<footer>
-<b>© 2026 Ted Brown. All rights reserved.</b>
-</footer>
-</b></body></html>
+        <footer>
+            <b>© 2026 Ted Brown. All rights reserved.</b>
+        </footer>
+    </b>
+</body>
+</html>
